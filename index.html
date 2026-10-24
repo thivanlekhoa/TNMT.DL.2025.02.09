@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bộ Chỉ Số Đánh Giá Năng Suất Nước - Lưu Vực Sông Đà & Sông Thao</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>window.tailwind || document.write('<script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"><\/script>')</script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; padding: 0 !important; }
+      .card-box { box-shadow: none !important; border: 1px solid #ccc !important; }
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased p-4 md:p-8">
+
+  <div class="max-w-7xl mx-auto space-y-6">
+
+    <!-- HEADER / BANNER -->
+    <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-cyan-900 text-white rounded-2xl p-6 md:p-8 shadow-xl">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-blue-700/60 pb-6">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-cyan-300 font-semibold mb-1">
+            Bộ Nông nghiệp và Môi trường • Trường Đại học Tài nguyên và Môi trường Hà Nội
+          </div>
+          <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">
+            HỆ THỐNG CHỈ SỐ ĐÁNH GIÁ NĂNG SUẤT SỬ DỤNG NƯỚC (WATER PRODUCTIVITY)
+          </h1>
+          <p class="text-blue-200 text-sm mt-1">
+            Áp dụng cho <span class="text-white font-semibold underline decoration-cyan-400">Lưu vực sông Đà</span> và <span class="text-white font-semibold underline decoration-cyan-400">Lưu vực sông Thao</span> • Đề tài mã số: <span class="font-mono bg-blue-800/80 px-2 py-0.5 rounded text-cyan-200">TNMT.ĐL.2025.02.09</span>
+          </p>
+        </div>
+        <div class="no-print flex items-center gap-2">
+          <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 text-white text-xs font-medium px-4 py-2 rounded-lg border border-white/20 transition flex items-center gap-1.5 shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            In / Xuất PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- TÓM TẮT ĐIỀU HÀNH NHANH -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+          <div class="text-xs text-blue-200 uppercase font-medium">Khung tiếp cận</div>
+          <div class="text-lg font-bold text-white mt-1">FAO WaPOR &amp; WA+</div>
+          <div class="text-xs text-cyan-300 mt-0.5">Tiêu thụ thực tế (ETIa = T + E + I)</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+          <div class="text-xs text-blue-200 uppercase font-medium">Nguồn dữ liệu gốc</div>
+          <div class="text-lg font-bold text-white mt-1">NGTK 2025 &amp; Viễn thám</div>
+          <div class="text-xs text-cyan-300 mt-0.5">405 đơn vị xã/phường • 45 huyện</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+          <div class="text-xs text-blue-200 uppercase font-medium">EWP Trung bình Sông Đà</div>
+          <div class="text-lg font-bold text-emerald-300 mt-1">15.975 VNĐ/m³</div>
+          <div class="text-xs text-emerald-200 mt-0.5">Cà phê Arabica, Cây ăn quả đồi dốc</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+          <div class="text-xs text-blue-200 uppercase font-medium">EWP Trung bình Sông Thao</div>
+          <div class="text-lg font-bold text-amber-300 mt-1">10.792 VNĐ/m³</div>
+          <div class="text-xs text-amber-200 mt-0.5">Lúa 2 vụ, Vùng chè, Bưởi Đoan Hùng</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS / BỘ LỌC TÌM KIẾM -->
+    <div class="no-print bg-white rounded-xl p-4 shadow-sm border border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex flex-wrap gap-2">
+        <button onclick="filterGroup('ALL')" id="btn-ALL" class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-blue-600 text-white shadow-sm transition">
+          Tất cả chỉ số (15)
+        </button>
+        <button onclick="filterGroup('CROP')" id="btn-CROP" class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          1. Nông nghiệp (CWP &amp; EWP)
+        </button>
+        <button onclick="filterGroup('HYDRO')" id="btn-HYDRO" class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          2. Năng lượng Thủy điện (WEP)
+        </button>
+        <button onclick="filterGroup('IND_URBAN')" id="btn-IND_URBAN" class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          3. Công nghiệp &amp; Cấp nước
+        </button>
+        <button onclick="filterGroup('ACCOUNTING')" id="btn-ACCOUNTING" class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          4. Hạch toán Lưu vực (WBI, WEI, BF, DWPI)
+        </button>
+      </div>
+
+      <div class="w-full md:w-72">
+        <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Tìm kiếm chỉ số, công thức, cây trồng..." class="w-full px-3.5 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+    </div>
+
+    <!-- BẢNG BIỂU CHÍNH HỆ THỐNG CÁC CHỈ SỐ -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden card-box">
+      <div class="px-6 py-4 bg-slate-50/80 border-b border-slate-200 flex justify-between items-center">
+        <div>
+          <h2 class="text-base font-bold text-slate-900">BẢNG DANH MỤC CÁC CHỈ SỐ NĂNG SUẤT VÀ HIỆU QUẢ SỬ DỤNG NƯỚC CỦA ĐỀ TÀI</h2>
+          <p class="text-xs text-slate-500">Được chuẩn hóa theo nguyên lý FAO WaPOR, SDG 6.4.1 và dữ liệu Niên giám thống kê tỉnh</p>
+        </div>
+        <span class="badge bg-blue-100 text-blue-800 border border-blue-200">Giai đoạn 2024 - 2025</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse" id="indicatorTable">
+          <thead>
+            <tr class="bg-slate-100/75 text-slate-700 font-bold border-b border-slate-200">
+              <th class="py-3.5 px-4 w-12 text-center">STT</th>
+              <th class="py-3.5 px-4 w-44">Tên Chỉ Số &amp; Ký Hiệu</th>
+              <th class="py-3.5 px-4 w-52">Công Thức Toán Học</th>
+              <th class="py-3.5 px-4 w-28">Đơn Vị Đo</th>
+              <th class="py-3.5 px-4">Bản Chất Vật Lý &amp; Ý Nghĩa Quản Lý</th>
+              <th class="py-3.5 px-4 w-48">Nguồn Dữ Liệu Đầu Vào</th>
+              <th class="py-3.5 px-4 w-44">Áp Dụng Cho Lưu Vực</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+
+            <!-- NHÓM 1: NÔNG NGHIỆP CÂY TRỒNG -->
+            <tr class="indicator-row" data-group="CROP">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">01</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-blue-900">Năng suất nước cây trồng vật lý</div>
+                <div class="font-mono text-blue-600 font-semibold text-[11px]">CWP (Crop Water Productivity)</div>
+                <span class="badge bg-emerald-50 text-emerald-700 border border-emerald-200 mt-1">Nông nghiệp</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px] leading-relaxed">
+                CWP = Y / (ETa × 10)<br>
+                <span class="text-slate-500 text-[10px]">trong đó: Y = (AGBM × HI) / (1 - MC)</span>
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">kg/m³</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Đo lượng nông sản thương phẩm (thóc, ngô hạt, chè búp, hạt cà phê, quả tươi) thu được trên mỗi mét khối nước bốc thoát hơi thực tế. Phản ánh hiệu suất quang hợp sinh học.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">NGTK: Biểu 06 (Sản lượng, Diện tích)</div>
+                <div class="text-slate-500 text-[11px]">WaPOR / MODIS: Lớp ETa (mm)</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[11px] font-medium mr-1 mb-1">Cả 2 lưu vực</span>
+                <div class="text-slate-500 text-[10px]">Lúa ĐX, lúa mùa, ngô, sắn</div>
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="CROP">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">02</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-blue-900">Năng suất nước kinh tế nông nghiệp</div>
+                <div class="font-mono text-blue-600 font-semibold text-[11px]">EWP_crop (Economic Water Productivity)</div>
+                <span class="badge bg-emerald-50 text-emerald-700 border border-emerald-200 mt-1">Kinh tế</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                EWP = (P × Y) / (ETa × 10)<br>
+                = CWP × P
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">VNĐ/m³<br><span class="text-slate-400 font-normal">hoặc USD/m³</span></td>
+              <td class="py-3 px-4 leading-relaxed">
+                Lượng hóa giá trị doanh thu tiền tệ tạo ra trên mỗi mét khối nước tiêu thụ. Là luận cứ then chốt định hướng chuyển đổi cây trồng giá trị cao tại các vùng khan hiếm nước mùa khô.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">NGTK: Biểu 08 (Chỉ số giá nông sản)</div>
+                <div class="text-slate-500 text-[11px]">Doituongsudungnuoc_Tinh.xlsx</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[11px] font-medium">Sông Đà:</span> Cà phê, Xoài, Mận<br>
+                <span class="inline-block bg-cyan-50 text-cyan-700 px-2 py-0.5 rounded text-[11px] font-medium mt-1">Sông Thao:</span> Chè búp, Bưởi
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="CROP">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">03</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-blue-900">Năng suất nước mưa cây trồng cạn</div>
+                <div class="font-mono text-blue-600 font-semibold text-[11px]">CWP_green (Green Water Productivity)</div>
+                <span class="badge bg-emerald-50 text-emerald-700 border border-emerald-200 mt-1">Nước xanh</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                CWP_green = Y / (ET_green × 10)
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">kg/m³</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Hiệu quả khai thác độ ẩm đất có nguồn gốc từ nước mưa. Cực kỳ quan trọng với các sườn dốc đồi núi Tây Bắc nơi hệ thống thủy lợi không thể vươn tới (lúa nương, ngô đồi).
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">Báo cáo CĐ 10 (Kiểm kê nước mưa)</div>
+                <div class="text-slate-500 text-[11px]">WaPOR lớp ET_green / CHIRPS</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[11px] font-medium">Vùng núi cao:</span><br>
+                Điện Biên, Sơn La, Lai Châu, Mù Cang Chải, Sa Pa
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="CROP">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">04</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-blue-900">Năng suất nước nuôi thủy sản lòng hồ</div>
+                <div class="font-mono text-blue-600 font-semibold text-[11px]">WP_ts (Aquaculture WP)</div>
+                <span class="badge bg-cyan-50 text-cyan-700 border border-cyan-200 mt-1">Thủy sản</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                WP_ts = Sản lượng cá / V_chiếm_dụng
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">kg/m³<br><span class="text-slate-400 font-normal">hoặc VNĐ/m³</span></td>
+              <td class="py-3 px-4 leading-relaxed">
+                Đo lường sản lượng và giá trị kinh tế nuôi cá lồng bè trên mỗi mét khối nước mặt hồ chứa thủy điện và đầm hồ tự nhiên.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">NGTK: Biểu 06 (Thủy sản)</div>
+                <div class="text-slate-500 text-[11px]">Hồ sơ thực địa thủy sản tỉnh</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[11px] font-medium">Lòng hồ thủy điện:</span><br>
+                Sơn La, Hòa Bình, Thác Bà
+              </td>
+            </tr>
+
+            <!-- NHÓM 2: NĂNG LƯỢNG THỦY ĐIỆN -->
+            <tr class="indicator-row" data-group="HYDRO">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">05</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-indigo-900">Năng suất nước năng lượng tua-bin</div>
+                <div class="font-mono text-indigo-600 font-semibold text-[11px]">WEP (Water Energy Productivity)</div>
+                <span class="badge bg-indigo-50 text-indigo-700 border border-indigo-200 mt-1">Thủy điện</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                WEP = E_phát / Q_qua_tuabin<br>
+                <span class="text-slate-500 text-[10px]">≈ (g × H × η) / 3600</span>
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">kWh/m³</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Suất sinh điện trên một mét khối nước chảy qua tua-bin. Chỉ số đặc thù số 1 của bậc thang sông Đà, phản ánh mức độ tối ưu hóa điều tiết cột nước hồ chứa (H) và hiệu suất phát điện (η).
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">NGTK: Biểu 04 (Điện phát)</div>
+                <div class="text-slate-500 text-[11px]">Báo cáo kỹ thuật EVN / Nhà máy</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded text-[11px] font-medium">Đặc trưng Sông Đà:</span><br>
+                Lai Châu, Bản Chát, Huội Quảng, Sơn La, Hòa Bình
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="HYDRO">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">06</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-indigo-900">Hiệu quả kinh tế dòng chảy phát điện</div>
+                <div class="font-mono text-indigo-600 font-semibold text-[11px]">EWP_TD (Economic Hydro WP)</div>
+                <span class="badge bg-indigo-50 text-indigo-700 border border-indigo-200 mt-1">Kinh tế năng lượng</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                EWP_TD = Doanh thu / Q_tuabin
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">VNĐ/m³</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Giá trị kinh tế thương phẩm của 1 m³ nước xả qua tua-bin (dao động 190 - 465 VNĐ/m³). Làm cơ sở đối sánh giá trị kinh tế giữa xả nước phát điện và xả nước xả kiệt phục vụ tưới hạ du.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">Hồ sơ quy trình liên hồ chứa</div>
+                <div class="text-slate-500 text-[11px]">Giá bán điện bình quân EVN</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded text-[11px] font-medium">Lưu vực sông Đà:</span><br>
+                Bậc thang 5 hồ chứa lớn
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="HYDRO">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">07</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-indigo-900">Hệ số tổn thất bốc hơi hồ chứa</div>
+                <div class="font-mono text-indigo-600 font-semibold text-[11px]">K_E_res (Reservoir Evaporation Loss)</div>
+                <span class="badge bg-indigo-50 text-indigo-700 border border-indigo-200 mt-1">Cân bằng hồ</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                K_E_res = (E_mặt_hồ × A_hồ) / Q_đến × 100%
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">%</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Đo tỷ lệ lượng nước đến bị tiêu hao không thể thu hồi qua bốc hơi mặt thoáng của các hồ chứa khổng lồ Sơn La (224 km²) và Hòa Bình (208 km²).
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">WaPOR lớp Evaporation (E)</div>
+                <div class="text-slate-500 text-[11px]">Số liệu khí tượng trạm hồ chứa</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded text-[11px] font-medium">Hồ chứa lớn:</span><br>
+                Sơn La, Hòa Bình, Thác Bà
+              </td>
+            </tr>
+
+            <!-- NHÓM 3: CÔNG NGHIỆP & CẤP NƯỚC -->
+            <tr class="indicator-row" data-group="IND_URBAN">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">08</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-purple-900">Cường độ sử dụng nước công nghiệp</div>
+                <div class="font-mono text-purple-600 font-semibold text-[11px]">WI (Water Intensity)</div>
+                <span class="badge bg-purple-50 text-purple-700 border border-purple-200 mt-1">Công nghiệp</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                WI = V_khai_thác_CN / P_sản_phẩm
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">m³/tấn<br><span class="text-slate-400 font-normal">sản phẩm</span></td>
+              <td class="py-3 px-4 leading-relaxed">
+                Đo thể tích nước tiêu tốn trên một tấn sản phẩm công nghiệp (giấy, phân bón DAP, hóa chất phốt pho, thép). Phản ánh trình độ công nghệ sản xuất sạch hơn.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">NGTK: Biểu 04 (Sản phẩm CN)</div>
+                <div class="text-slate-500 text-[11px]">Giấy phép khai thác TNN Sở TNMT</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-cyan-50 text-cyan-700 px-2 py-0.5 rounded text-[11px] font-medium">Đặc trưng Sông Thao:</span><br>
+                Hóa chất Tằng Loỏng, Giấy Bãi Bằng, Lâm Thao
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="IND_URBAN">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">09</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-purple-900">Tỷ lệ tuần hoàn tái sử dụng nước</div>
+                <div class="font-mono text-purple-600 font-semibold text-[11px]">IWRR (Internal Water Recycling Rate)</div>
+                <span class="badge bg-purple-50 text-purple-700 border border-purple-200 mt-1">Kinh tế tuần hoàn</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                IWRR = V_tuần_hoàn / (V_mới + V_tuần_hoàn) × 100%
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">%</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Phản ánh mức độ đóng kín vòng tuần hoàn nước trong các nhà máy, cắt giảm áp lực rút nước ngọt từ sông Thao và giảm xả thải ô nhiễm.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">Báo cáo CĐ 13 (Kiểm kê xả thải)</div>
+                <div class="text-slate-500 text-[11px]">Báo cáo ĐTM các KCN</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-cyan-50 text-cyan-700 px-2 py-0.5 rounded text-[11px] font-medium">Cụm KCN:</span><br>
+                Lào Cai, Phú Thọ, Việt Trì
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="IND_URBAN">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">10</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-purple-900">Chỉ số rủi ro trạm bơm "treo chõ"</div>
+                <div class="font-mono text-purple-600 font-semibold text-[11px]">R_pumping_fail</div>
+                <span class="badge bg-rose-50 text-rose-700 border border-rose-200 mt-1">Thủy lợi kiệt</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                R_treo = N_ngày_mực_nước_thấp / N_ngày_vụ_ĐX × 100%
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">%</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Đo tỷ lệ thời gian mùa kiệt mà mực nước sông tụt sâu dưới cao trình thiết kế bể hút, khiến các trạm bơm điện ven sông mất khả năng lấy nước tưới lúa Đông Xuân.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">Trạm thủy văn Yên Bái, Phú Thọ</div>
+                <div class="text-slate-500 text-[11px]">Nhật ký bơm Cty KTCTTL Phú Thọ</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-rose-50 text-rose-700 px-2 py-0.5 rounded text-[11px] font-medium">Trục Sông Thao:</span><br>
+                Đoan Hùng, Cẩm Khê, Lâm Thao
+              </td>
+            </tr>
+
+            <!-- NHÓM 4: HẠCH TOÁN LƯU VỰC VÀ WAPOR -->
+            <tr class="indicator-row" data-group="ACCOUNTING">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">11</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-teal-900">Tỷ lệ tiêu thụ hữu ích lưu vực</div>
+                <div class="font-mono text-teal-600 font-semibold text-[11px]">BF (Beneficial Fraction)</div>
+                <span class="badge bg-teal-50 text-teal-700 border border-teal-200 mt-1">WaPOR cốt lõi</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                BF = Ta / ETIa<br>
+                = Ta / (Ta + Ea + I) × 100%
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">%</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Tỷ lệ phần trăm tổng lượng nước tiêu thụ chuyển hóa thành dòng thoát hơi có ích qua lá cây (Ta). Mục tiêu quản trị lưu vực: đạt BF ≥ 70–80% bằng cách giảm thiểu bốc hơi đất mặt trống trải (Ea).
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">WaPOR Cấp 1 &amp; Cấp 2:</div>
+                <div class="text-slate-500 text-[11px]">Lớp AETI, Transpiration (T), Evaporation (E)</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-teal-50 text-teal-700 px-2 py-0.5 rounded text-[11px] font-medium mr-1">Toàn bộ 405 xã</span><br>
+                Đánh giá đồi dốc vs. thung lũng
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="ACCOUNTING">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">12</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-teal-900">Chỉ số Năng suất Nước chuẩn hóa</div>
+                <div class="font-mono text-teal-600 font-semibold text-[11px]">DWPI (Dimensionless WP Index)</div>
+                <span class="badge bg-teal-50 text-teal-700 border border-teal-200 mt-1">WaPOR Gap</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                DWPI = (WP_i - WP_hotspot) /<br>
+                (WP_brightspot - WP_hotspot)
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">Không thứ nguyên<br><span class="text-slate-400 font-normal">(0 đến 1)</span></td>
+              <td class="py-3 px-4 leading-relaxed">
+                Chuẩn hóa để đối sánh công bằng giữa các tiểu vùng sinh thái khác nhau. Xác định ngưỡng bách phân vị: P90 là "Điểm sáng" (trần tiềm năng), P10 là "Điểm nóng" (vùng cần ưu tiên can thiệp).
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">Chuỗi số liệu EWP tính toán</div>
+                <div class="text-slate-500 text-[11px]">Phân tích thống kê bách phân vị</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-teal-50 text-teal-700 px-2 py-0.5 rounded text-[11px] font-medium mr-1">Phân vùng GIS:</span><br>
+                Khoanh vùng ưu tiên đầu tư
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="ACCOUNTING">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">13</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-teal-900">Năng suất nước kinh tế lưu vực</div>
+                <div class="font-mono text-teal-600 font-semibold text-[11px]">BWP (Basin Water Productivity)</div>
+                <span class="badge bg-teal-50 text-teal-700 border border-teal-200 mt-1">SDG 6.4.1</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                BWP = ∑GRDP_ngành / V_khai_thác_tổng
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">VNĐ/m³<br><span class="text-slate-400 font-normal">hoặc USD/m³</span></td>
+              <td class="py-3 px-4 leading-relaxed">
+                Chỉ số tích hợp tổng thể theo chuẩn Mục tiêu Phát triển Bền vững SDG 6.4.1. Đo lường tổng giá trị gia tăng (GRDP) tạo ra từ toàn bộ lượng nước khai thác trên toàn lưu vực.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">NGTK: Biểu 03 (GRDP cấp tỉnh)</div>
+                <div class="text-slate-500 text-[11px]">Báo cáo CĐ 12 (Tổng khai thác)</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[11px] font-medium">Toàn lưu vực:</span><br>
+                Sông Đà vs. Sông Thao
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="ACCOUNTING">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">14</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-teal-900">Chỉ số Cân bằng Nước Lưu vực</div>
+                <div class="font-mono text-teal-600 font-semibold text-[11px]">WBI (Water Balance Index)</div>
+                <span class="badge bg-teal-50 text-teal-700 border border-teal-200 mt-1">Cân bằng ẩm</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                WBI = ETIa_tổng / P_nội_sinh × 100%
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">%</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Tỷ lệ giữa tổng lượng nước tiêu thụ bốc thoát hơi và tổng lượng mưa nội sinh. WBI &lt; 60%: dồi dào nước; WBI = 80–100%: áp lực khan hiếm nghiêm trọng trong mùa khô.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">Báo cáo CĐ 10 (Kiểm kê mưa)</div>
+                <div class="text-slate-500 text-[11px]">WaPOR lớp AETI tích lũy</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-teal-50 text-teal-700 px-2 py-0.5 rounded text-[11px] font-medium mr-1">Tính theo mùa:</span><br>
+                Mùa kiệt vs. Mùa lũ
+              </td>
+            </tr>
+
+            <tr class="indicator-row" data-group="ACCOUNTING">
+              <td class="py-3 px-4 text-center font-mono font-bold text-slate-400">15</td>
+              <td class="py-3 px-4">
+                <div class="font-bold text-teal-900">Chỉ số Áp lực Khai thác Nước</div>
+                <div class="font-mono text-teal-600 font-semibold text-[11px]">WEI / WEI+ (Water Exploitation Index)</div>
+                <span class="badge bg-teal-50 text-teal-700 border border-teal-200 mt-1">Áp lực tài nguyên</span>
+              </td>
+              <td class="py-3 px-4 font-mono bg-slate-50 text-slate-800 rounded p-2 text-[11px]">
+                WEI = V_khai_thác / Q_sẵn_có × 100%<br>
+                <span class="text-slate-500 text-[10px]">Phân biệt Q_nội_sinh và Q_ngoại_sinh</span>
+              </td>
+              <td class="py-3 px-4 font-semibold text-slate-900">%</td>
+              <td class="py-3 px-4 leading-relaxed">
+                Tỷ lệ nước khai thác so với nguồn nước ngọt sẵn có dài hạn. Rất quan trọng với sông Đà và sông Thao để đánh giá mức độ phụ thuộc vào dòng chảy xuyên biên giới từ thượng nguồn Trung Quốc.
+              </td>
+              <td class="py-3 px-4">
+                <div class="font-medium text-slate-900">Báo cáo CĐ 09 (Kiểm kê nước mặt)</div>
+                <div class="text-slate-500 text-[11px]">Chuỗi đo trạm Mường Tè, Lào Cai</div>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block bg-teal-50 text-teal-700 px-2 py-0.5 rounded text-[11px] font-medium mr-1">Biên giới &amp; Nội địa:</span><br>
+                Dòng chảy xuyên biên giới
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BẢNG TỔNG HỢP KẾT QUẢ TÍNH TOÁN 2024-2025 THEO CẤP HUYỆN TIÊU BIỂU -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 card-box">
+
+      <!-- TOP SÔNG ĐÀ -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+          <div>
+            <span class="badge bg-blue-100 text-blue-800">Lưu vực sông Đà</span>
+            <h3 class="text-base font-bold text-slate-900 mt-1">Top Huyện có Năng suất Nước Kinh tế (EWP) cao nhất</h3>
+          </div>
+          <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">Trung bình: 15.975 đ/m³</span>
+        </div>
+        <div class="overflow-x-auto mt-4">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="text-slate-500 border-b border-slate-200">
+                <th class="pb-2">Tên Huyện</th>
+                <th class="pb-2">Tỉnh</th>
+                <th class="pb-2 text-right">ETa (tr. m³)</th>
+                <th class="pb-2 text-right">Giá trị (tỷ đ)</th>
+                <th class="pb-2 text-right font-bold text-blue-900">EWP (VNĐ/m³)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Huyện Mường Ảng</td>
+                <td class="py-2.5 text-slate-500">Điện Biên</td>
+                <td class="py-2.5 text-right font-mono">24,95</td>
+                <td class="py-2.5 text-right font-mono">676,9</td>
+                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">27.133</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Huyện Mộc Châu</td>
+                <td class="py-2.5 text-slate-500">Sơn La</td>
+                <td class="py-2.5 text-right font-mono">28,70</td>
+                <td class="py-2.5 text-right font-mono">673,7</td>
+                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">23.473</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Huyện Mai Sơn</td>
+                <td class="py-2.5 text-slate-500">Sơn La</td>
+                <td class="py-2.5 text-right font-mono">32,61</td>
+                <td class="py-2.5 text-right font-mono">743,9</td>
+                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">22.808</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Huyện Thuận Châu</td>
+                <td class="py-2.5 text-slate-500">Sơn La</td>
+                <td class="py-2.5 text-right font-mono">26,03</td>
+                <td class="py-2.5 text-right font-mono">584,1</td>
+                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">22.438</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Huyện Tuần Giáo</td>
+                <td class="py-2.5 text-slate-500">Điện Biên</td>
+                <td class="py-2.5 text-right font-mono">12,35</td>
+                <td class="py-2.5 text-right font-mono">270,9</td>
+                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">21.943</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TOP SÔNG THAO -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+          <div>
+            <span class="badge bg-cyan-100 text-cyan-800">Lưu vực sông Thao</span>
+            <h3 class="text-base font-bold text-slate-900 mt-1">Top Huyện có Năng suất Nước Kinh tế (EWP) cao nhất</h3>
+          </div>
+          <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">Trung bình: 10.792 đ/m³</span>
+        </div>
+        <div class="overflow-x-auto mt-4">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="text-slate-500 border-b border-slate-200">
+                <th class="pb-2">Tên Huyện</th>
+                <th class="pb-2">Tỉnh</th>
+                <th class="pb-2 text-right">ETa (tr. m³)</th>
+                <th class="pb-2 text-right">Giá trị (tỷ đ)</th>
+                <th class="pb-2 text-right font-bold text-cyan-900">EWP (VNĐ/m³)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Huyện Thanh Ba</td>
+                <td class="py-2.5 text-slate-500">Phú Thọ</td>
+                <td class="py-2.5 text-right font-mono">13,92</td>
+                <td class="py-2.5 text-right font-mono">172,2</td>
+                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.374</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Huyện Mường Khương</td>
+                <td class="py-2.5 text-slate-500">Lào Cai</td>
+                <td class="py-2.5 text-right font-mono">31,86</td>
+                <td class="py-2.5 text-right font-mono">389,0</td>
+                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.211</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Huyện Văn Chấn</td>
+                <td class="py-2.5 text-slate-500">Yên Bái</td>
+                <td class="py-2.5 text-right font-mono">17,74</td>
+                <td class="py-2.5 text-right font-mono">213,5</td>
+                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.040</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Huyện Đoan Hùng</td>
+                <td class="py-2.5 text-slate-500">Phú Thọ</td>
+                <td class="py-2.5 text-right font-mono">1.577,80</td>
+                <td class="py-2.5 text-right font-mono">17.931,7</td>
+                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">11.365</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 font-semibold text-slate-900">Thành phố Lào Cai</td>
+                <td class="py-2.5 text-slate-500">Lào Cai</td>
+                <td class="py-2.5 text-right font-mono">709,75</td>
+                <td class="py-2.5 text-right font-mono">6.890,4</td>
+                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">9.708</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER / GHI CHÚ BẢN QUYỀN -->
+    <div class="border-t border-slate-200 pt-6 text-center text-xs text-slate-500 space-y-1">
+      <div>Đề tài cấp Bộ TNMT: <strong>Nghiên cứu đề xuất phương pháp và bộ công cụ kiểm kê tài nguyên nước mưa và nước mặt cho khu vực thiếu và không có số liệu</strong> (Mã số: TNMT.ĐL.2025.02.09)</div>
+      <div>Dữ liệu được xử lý tự động bởi các Python Scripts trong thư mục <code>productivity/script</code> và lưu trữ tại <code>productivity/results</code></div>
+    </div>
+
+  </div>
+
+  <script>
+    function filterGroup(group) {
+      const rows = document.querySelectorAll('.indicator-row');
+      rows.forEach(row => {
+        if (group === 'ALL' || row.getAttribute('data-group') === group) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      // Update button styles
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('bg-slate-100', 'text-slate-700');
+      });
+      const activeBtn = document.getElementById('btn-' + group);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+        activeBtn.classList.add('bg-blue-600', 'text-white');
+      }
+    }
+
+    function searchTable() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase();
+      const rows = document.querySelectorAll('.indicator-row');
+
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        if (text.includes(filter)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
