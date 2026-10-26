@@ -26,6 +26,23 @@
 
   <div class="max-w-7xl mx-auto space-y-6">
 
+    <!-- TOP NAVIGATION -->
+    <nav class="no-print flex flex-wrap items-center justify-between gap-2 pb-1 border-b border-slate-200 text-xs font-semibold">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="px-3.5 py-1.5 rounded-lg bg-blue-700 text-white shadow-sm flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          1. Hệ Thống Chỉ Số Năng Suất Nước
+        </a>
+        <a href="phuong_phap_tieu_luu_vuc.html" class="px-3.5 py-1.5 rounded-lg bg-white text-blue-700 hover:bg-blue-50 border border-blue-200 shadow-sm transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+          2. Phương Pháp &amp; Kết Quả Theo Tiểu Lưu Vực (Mới)
+          <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-1.5 py-0.2 rounded-full">203 TLV</span>
+        </a>
+      </div>
+      <div class="text-slate-500 text-[11px]">Đề tài: <span class="font-mono font-bold text-slate-700">TNMT.ĐL.2025.02.09</span> • 2024–2025</div>
+    </nav>
+
+
     <!-- HEADER / BANNER -->
     <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-cyan-900 text-white rounded-2xl p-6 md:p-8 shadow-xl">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-blue-700/60 pb-6">
@@ -58,7 +75,7 @@
         <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
           <div class="text-xs text-blue-200 uppercase font-medium">Nguồn dữ liệu gốc</div>
           <div class="text-lg font-bold text-white mt-1">NGTK 2025 &amp; Viễn thám</div>
-          <div class="text-xs text-cyan-300 mt-0.5">405 đơn vị xã/phường • 45 huyện</div>
+          <div class="text-xs text-cyan-300 mt-0.5">405 xã/phường • 203 tiểu lưu vực (SWAT/WaPOR)</div>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
           <div class="text-xs text-blue-200 uppercase font-medium">EWP Trung bình Sông Đà</div>
@@ -498,132 +515,204 @@
       </div>
     </div>
 
-    <!-- BẢNG TỔNG HỢP KẾT QUẢ TÍNH TOÁN 2024-2025 THEO CẤP HUYỆN TIÊU BIỂU -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 card-box">
-
-      <!-- TOP SÔNG ĐÀ -->
-      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-          <div>
-            <span class="badge bg-blue-100 text-blue-800">Lưu vực sông Đà</span>
-            <h3 class="text-base font-bold text-slate-900 mt-1">Top Huyện có Năng suất Nước Kinh tế (EWP) cao nhất</h3>
+        <!-- BẢNG TỔNG HỢP KẾT QUẢ TÍNH TOÁN 2024-2025 THEO ĐƠN VỊ TIỂU LƯU VỰC TIÊU BIỂU -->
+    <div class="space-y-4">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-2">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="badge bg-indigo-100 text-indigo-800 border border-indigo-200">Đơn vị quản lý thủy văn</span>
+            <span class="badge bg-amber-100 text-amber-800 border border-amber-200">Không sử dụng cấp huyện (Cải cách 2025)</span>
           </div>
-          <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">Trung bình: 15.975 đ/m³</span>
+          <h2 class="text-lg font-bold text-slate-900 mt-1.5">TOP 5 TIỂU LƯU VỰC CÓ HIỆU QUẢ SỬ DỤNG NƯỚC (EWP) CAO NHẤT MỖI LƯU VỰC</h2>
+          <p class="text-xs text-slate-500">Được tích hợp không gian từ 405 xã/phường vào 203 tiểu lưu vực thủy văn (153 TLV Sông Đà &amp; 50 TLV Sông Thao)</p>
         </div>
-        <div class="overflow-x-auto mt-4">
-          <table class="w-full text-left text-xs">
-            <thead>
-              <tr class="text-slate-500 border-b border-slate-200">
-                <th class="pb-2">Tên Huyện</th>
-                <th class="pb-2">Tỉnh</th>
-                <th class="pb-2 text-right">ETa (tr. m³)</th>
-                <th class="pb-2 text-right">Giá trị (tỷ đ)</th>
-                <th class="pb-2 text-right font-bold text-blue-900">EWP (VNĐ/m³)</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-slate-700">
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Huyện Mường Ảng</td>
-                <td class="py-2.5 text-slate-500">Điện Biên</td>
-                <td class="py-2.5 text-right font-mono">24,95</td>
-                <td class="py-2.5 text-right font-mono">676,9</td>
-                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">27.133</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Huyện Mộc Châu</td>
-                <td class="py-2.5 text-slate-500">Sơn La</td>
-                <td class="py-2.5 text-right font-mono">28,70</td>
-                <td class="py-2.5 text-right font-mono">673,7</td>
-                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">23.473</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Huyện Mai Sơn</td>
-                <td class="py-2.5 text-slate-500">Sơn La</td>
-                <td class="py-2.5 text-right font-mono">32,61</td>
-                <td class="py-2.5 text-right font-mono">743,9</td>
-                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">22.808</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Huyện Thuận Châu</td>
-                <td class="py-2.5 text-slate-500">Sơn La</td>
-                <td class="py-2.5 text-right font-mono">26,03</td>
-                <td class="py-2.5 text-right font-mono">584,1</td>
-                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">22.438</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Huyện Tuần Giáo</td>
-                <td class="py-2.5 text-slate-500">Điện Biên</td>
-                <td class="py-2.5 text-right font-mono">12,35</td>
-                <td class="py-2.5 text-right font-mono">270,9</td>
-                <td class="py-2.5 text-right font-mono font-bold text-emerald-600">21.943</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <a href="phuong_phap_tieu_luu_vuc.html" class="no-print inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-3.5 py-2 rounded-xl border border-blue-200 transition shadow-sm">
+          Xem Phương pháp tính &amp; Toàn bộ 203 Tiểu lưu vực
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
       </div>
 
-      <!-- TOP SÔNG THAO -->
-      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-          <div>
-            <span class="badge bg-cyan-100 text-cyan-800">Lưu vực sông Thao</span>
-            <h3 class="text-base font-bold text-slate-900 mt-1">Top Huyện có Năng suất Nước Kinh tế (EWP) cao nhất</h3>
-          </div>
-          <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">Trung bình: 10.792 đ/m³</span>
-        </div>
-        <div class="overflow-x-auto mt-4">
-          <table class="w-full text-left text-xs">
-            <thead>
-              <tr class="text-slate-500 border-b border-slate-200">
-                <th class="pb-2">Tên Huyện</th>
-                <th class="pb-2">Tỉnh</th>
-                <th class="pb-2 text-right">ETa (tr. m³)</th>
-                <th class="pb-2 text-right">Giá trị (tỷ đ)</th>
-                <th class="pb-2 text-right font-bold text-cyan-900">EWP (VNĐ/m³)</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-slate-700">
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Huyện Thanh Ba</td>
-                <td class="py-2.5 text-slate-500">Phú Thọ</td>
-                <td class="py-2.5 text-right font-mono">13,92</td>
-                <td class="py-2.5 text-right font-mono">172,2</td>
-                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.374</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Huyện Mường Khương</td>
-                <td class="py-2.5 text-slate-500">Lào Cai</td>
-                <td class="py-2.5 text-right font-mono">31,86</td>
-                <td class="py-2.5 text-right font-mono">389,0</td>
-                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.211</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Huyện Văn Chấn</td>
-                <td class="py-2.5 text-slate-500">Yên Bái</td>
-                <td class="py-2.5 text-right font-mono">17,74</td>
-                <td class="py-2.5 text-right font-mono">213,5</td>
-                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.040</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Huyện Đoan Hùng</td>
-                <td class="py-2.5 text-slate-500">Phú Thọ</td>
-                <td class="py-2.5 text-right font-mono">1.577,80</td>
-                <td class="py-2.5 text-right font-mono">17.931,7</td>
-                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">11.365</td>
-              </tr>
-              <tr>
-                <td class="py-2.5 font-semibold text-slate-900">Thành phố Lào Cai</td>
-                <td class="py-2.5 text-slate-500">Lào Cai</td>
-                <td class="py-2.5 text-right font-mono">709,75</td>
-                <td class="py-2.5 text-right font-mono">6.890,4</td>
-                <td class="py-2.5 text-right font-mono font-bold text-cyan-700">9.708</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 card-box">
 
+        <!-- TOP SÔNG ĐÀ -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div>
+                <span class="badge bg-blue-100 text-blue-800">Lưu vực sông Đà (153 TLV)</span>
+                <h3 class="text-sm font-bold text-slate-900 mt-1">Top 5 Tiểu lưu vực có Năng suất Nước Kinh tế cao nhất</h3>
+              </div>
+              <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">EWP TB: 15.726 đ/m³</span>
+            </div>
+            <div class="overflow-x-auto mt-3">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="text-slate-500 border-b border-slate-200">
+                    <th class="pb-2">Mã TLV</th>
+                    <th class="pb-2">Diện tích (km²)</th>
+                    <th class="pb-2 text-right">ETa (tr. m³)</th>
+                    <th class="pb-2 text-right">Giá trị (tỷ đ)</th>
+                    <th class="pb-2 text-right font-bold text-blue-900">EWP (VNĐ/m³)</th>
+                    <th class="pb-2 text-center">SWPI</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-slate-700">
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-blue-900">DA_TLV_106</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Chiềng An, Chiềng Cơi, Tô Hiệu, Mười Nọi, Nậm Lầu">Tô Hiệu, Chiềng An...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">106,71</td>
+                    <td class="py-2.5 text-right font-mono">30,96</td>
+                    <td class="py-2.5 text-right font-mono">966,9</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-emerald-600">31.228</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px]">0.856</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-blue-900">DA_TLV_112</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Chiềng Sinh, Chiềng Mai, Mường Chanh, Phiêng Cằm">Chiềng Sinh, Chiềng Mai...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">230,32</td>
+                    <td class="py-2.5 text-right font-mono">59,27</td>
+                    <td class="py-2.5 text-right font-mono">1.840,6</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-emerald-600">31.054</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px]">0.860</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-blue-900">DA_TLV_114</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Chiềng Mai, Chiềng Mung, Mai Sơn, Phiêng Pằn">Mai Sơn, Chiềng Mung...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">182,16</td>
+                    <td class="py-2.5 text-right font-mono">64,26</td>
+                    <td class="py-2.5 text-right font-mono">1.925,8</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-emerald-600">29.967</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px]">0.839</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-blue-900">DA_TLV_126</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Chiềng Hạc, Lóng Phiêng, Mai Sơn, Phiêng Khoài, Yên Châu">Yên Châu, Lóng Phiêng...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">335,97</td>
+                    <td class="py-2.5 text-right font-mono">58,29</td>
+                    <td class="py-2.5 text-right font-mono">1.624,0</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-emerald-600">27.860</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px]">0.799</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-blue-900">DA_TLV_104</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Chiềng An, Tô Hiệu, Mường Bú, Mường Khiêng">Mường Bú, Tô Hiệu...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">62,57</td>
+                    <td class="py-2.5 text-right font-mono">16,49</td>
+                    <td class="py-2.5 text-right font-mono">417,7</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-emerald-600">25.332</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px]">0.707</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Đặc trưng: Cà phê Arabica &amp; Cây ăn quả đồi dốc</span>
+            <span class="text-blue-700 font-medium">Chiếm 22 Bright Spots</span>
+          </div>
+        </div>
+
+        <!-- TOP SÔNG THAO -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div>
+                <span class="badge bg-cyan-100 text-cyan-800">Lưu vực sông Thao (50 TLV)</span>
+                <h3 class="text-sm font-bold text-slate-900 mt-1">Top 5 Tiểu lưu vực có Năng suất Nước Kinh tế cao nhất</h3>
+              </div>
+              <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">EWP TB: 10.597 đ/m³</span>
+            </div>
+            <div class="overflow-x-auto mt-3">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="text-slate-500 border-b border-slate-200">
+                    <th class="pb-2">Mã TLV</th>
+                    <th class="pb-2">Diện tích (km²)</th>
+                    <th class="pb-2 text-right">ETa (tr. m³)</th>
+                    <th class="pb-2 text-right">Giá trị (tỷ đ)</th>
+                    <th class="pb-2 text-right font-bold text-cyan-900">EWP (VNĐ/m³)</th>
+                    <th class="pb-2 text-center">SWPI</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-slate-700">
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-cyan-900">THAO_TLV_49</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Lào Cai, Bản Lầu, Cao Sơn, Mường Khương">Mường Khương, Bản Lầu...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">167,46</td>
+                    <td class="py-2.5 text-right font-mono">33,78</td>
+                    <td class="py-2.5 text-right font-mono">422,7</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.511</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-cyan-50 text-cyan-700 border border-cyan-200 text-[10px]">0.524</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-cyan-900">THAO_TLV_20</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Long Cốc, Minh Đài, Minh Hòa, Tân Sơn, Văn Miếu">Đồi chè Long Cốc, Tân Sơn...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">116,39</td>
+                    <td class="py-2.5 text-right font-mono">24,34</td>
+                    <td class="py-2.5 text-right font-mono">300,3</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.337</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-cyan-50 text-cyan-700 border border-cyan-200 text-[10px]">0.489</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-cyan-900">THAO_TLV_46</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Lào Cai, Bản Lầu, Bảo Nhai, Bảo Thắng, Phong Hải">Bảo Thắng, Mường Khương...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">295,25</td>
+                    <td class="py-2.5 text-right font-mono">41,80</td>
+                    <td class="py-2.5 text-right font-mono">513,7</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.290</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-cyan-50 text-cyan-700 border border-cyan-200 text-[10px]">0.515</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-cyan-900">THAO_TLV_31</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Bằng Luân, Chân Mộng, Tây Cốc, Thanh Ba, Hạ Hòa">Thanh Ba, Bưởi Tây Cốc...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">152,20</td>
+                    <td class="py-2.5 text-right font-mono">54,81</td>
+                    <td class="py-2.5 text-right font-mono">666,1</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-cyan-700">12.153</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-cyan-50 text-cyan-700 border border-cyan-200 text-[10px]">0.482</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5">
+                      <div class="font-bold text-cyan-900">THAO_TLV_16</div>
+                      <div class="text-[10px] text-slate-400 truncate max-w-[140px]" title="Cự Đồng, Đào Xá, Minh Đài, Tân Sơn, Thanh Sơn, Yên Lập">Thanh Sơn, Yên Lập...</div>
+                    </td>
+                    <td class="py-2.5 font-mono">209,12</td>
+                    <td class="py-2.5 text-right font-mono">43,06</td>
+                    <td class="py-2.5 text-right font-mono">516,3</td>
+                    <td class="py-2.5 text-right font-mono font-bold text-cyan-700">11.992</td>
+                    <td class="py-2.5 text-center"><span class="badge bg-cyan-50 text-cyan-700 border border-cyan-200 text-[10px]">0.477</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Đặc trưng: Đồi chè công nghiệp, Bưởi Đoan Hùng &amp; Lúa 2 vụ</span>
+            <span class="text-cyan-700 font-medium">Tập trung vùng gò đồi Phú Thọ/Lào Cai</span>
+          </div>
+        </div>
+
+      </div>
     </div>
+
 
     <!-- FOOTER / GHI CHÚ BẢN QUYỀN -->
     <div class="border-t border-slate-200 pt-6 text-center text-xs text-slate-500 space-y-1">
